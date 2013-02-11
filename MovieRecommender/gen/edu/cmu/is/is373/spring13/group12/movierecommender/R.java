@@ -5,7 +5,7 @@
  * should not be modified by hand.
  */
 
-package com.cmu.is373.spring13.movierecommender;
+package edu.cmu.is.is373.spring13.group12.movierecommender;
 
 public final class R {
     public static final class attr {
