@@ -9,6 +9,7 @@ import java.net.URLEncoder;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
@@ -30,11 +31,14 @@ public class MainActivity extends Activity {
 	}
 
 	public void searchMovies(View button) {
-		final EditText movieField = (EditText) findViewById(R.id.moviesSearchBox);  
+		EditText movieField = (EditText) findViewById(R.id.moviesSearchBox);  
 		String name = movieField.getText().toString();
 		
 		try {
 			String json = getMoviesFromServer(name);
+			Intent searchIntent = new Intent(this, MovieListActivity.class);
+			searchIntent.putExtra("json", json);
+			startActivity(searchIntent);
 		}
 		catch(IOException e) {
 			return;
