@@ -22,6 +22,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="MovieListActivity" android:process="@string/search_movies"></activity>
     </application>
 
 </manifest>
