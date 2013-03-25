@@ -1,0 +1,62 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MovieShowActivity" >
+    
+	<TextView
+	    android:id="@+id/title"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_alignParentLeft="true"
+	    android:layout_alignParentTop="true"
+	    android:layout_marginLeft="17dp"
+	    android:layout_marginTop="17dp"
+	    android:text="@string/movie_title"
+	    android:textSize="20sp"
+	    android:textStyle="bold" />
+
+	<TextView
+	    android:id="@+id/year"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_alignLeft="@+id/title"
+	    android:layout_below="@+id/title"
+	    android:text="@string/release_date" />
+
+	<TextView
+	    android:id="@+id/audience_text"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_below="@+id/critic_text"
+	    android:layout_marginLeft="40dp"
+	    android:layout_toRightOf="@+id/title"
+	    android:text="@string/audience_rating" />
+
+	<TextView
+	    android:id="@+id/audience_value"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_alignBaseline="@+id/audience_text"
+	    android:layout_alignBottom="@+id/audience_text"
+	    android:layout_marginLeft="18dp"
+	    android:layout_toRightOf="@+id/audience_text"
+	    android:text="@string/empty" />
+
+	<TextView
+	    android:id="@+id/critic_value"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_above="@+id/audience_value"
+	    android:layout_alignLeft="@+id/audience_value"
+	    android:text="@string/empty" />
+
+	<TextView
+	    android:id="@+id/critic_text"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_below="@+id/title"
+	    android:layout_toLeftOf="@+id/audience_value"
+	    android:text="@string/critic_rating" />
+
+</RelativeLayout>
