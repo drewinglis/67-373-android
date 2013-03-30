@@ -4,28 +4,34 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity" >
 
-    <EditText
-        android:id="@+id/moviesSearchBox"
+    <TextView
+        android:id="@+id/welcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_marginBottom="67dp"
-        android:ems="10"
-        android:hint="@string/search_movies"
-        android:inputType="text" >
-
-        <requestFocus />
-    </EditText>
+        android:layout_marginTop="63dp"
+        android:text="@string/hello_world" />
 
     <Button
-        android:id="@+id/moviesSearchButton"
+        android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/moviesSearchBox"
+        android:layout_alignLeft="@+id/button2"
+        android:layout_alignRight="@+id/button2"
+        android:layout_below="@+id/welcome"
+        android:layout_marginTop="89dp"
+        android:onClick="goSearch"
+        android:text="@string/search_movies" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button1"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="37dp"
-        android:onClick="searchMovies"
-        android:text="@string/go" />
+        android:layout_marginTop="21dp"
+        android:onClick="goRecommendation"
+        android:text="@string/get_recommendations" />
 
 </RelativeLayout>

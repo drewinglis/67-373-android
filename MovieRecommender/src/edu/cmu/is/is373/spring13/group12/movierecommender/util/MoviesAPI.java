@@ -7,28 +7,19 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 
-import android.app.Activity;
-
 public abstract class MoviesAPI {
-	private static final String URL = "127.0.0.1:3000";
+	private static final String URL = "http://movierecommender.herokuapp.com";
 	
-	public static String getDummyMoviesFromServer(String searchName, int page, Activity activity) throws IOException {
-		BufferedReader reader = new BufferedReader(new InputStreamReader(activity.getAssets().open("toy"))); 
-		String json = "";
-		String line;
-		while((line = reader.readLine()) != null) {
-			json += line + "\n";
-		}
-		reader.close();
-		
-		return json;
+	public static String sendFacebookLogin(String email, String name, String fbToken, String fbId, int age) throws IOException {
+		String encodedName = URLEncoder.encode(name, "UTF-8");
+		String encodedEmail = URLEncoder.encode(email, "UTF-8");
+		return getRequest("/mobile.json?name=" + encodedName + "&email=" + encodedEmail + "&token=" + fbToken + "&id=" + fbId + "&age=" + age);
 	}
 	
-	public static String getMoviesFromServer(String searchName, int page) throws IOException {
-		String encodedQuery = URLEncoder.encode(searchName, "UTF-8");
-		URL url = new URL(URL + "/movies.json?query=" + encodedQuery + "&page=" + page);
+	protected static String getRequest(String URI) throws IOException {
+		URL url = new URL(URL + URI);
 		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-
+		
 		if (conn.getResponseCode() != 200) {
 		  throw new IOException(conn.getResponseMessage());
 		}

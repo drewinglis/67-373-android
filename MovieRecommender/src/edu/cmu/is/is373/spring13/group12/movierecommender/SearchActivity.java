@@ -1,12 +1,7 @@
 package edu.cmu.is.is373.spring13.group12.movierecommender;
 
-import java.io.IOException;
-
-import edu.cmu.is.is373.spring13.group12.movierecommender.util.MoviesAPI;
 import android.os.Bundle;
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.AlertDialog.Builder;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
@@ -16,7 +11,7 @@ public class SearchActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+		setContentView(R.layout.activity_search);
 	}
 
 	@Override
@@ -29,18 +24,13 @@ public class SearchActivity extends Activity {
 	public void searchMovies(View button) {
 		EditText movieField = (EditText) findViewById(R.id.moviesSearchBox);  
 		String name = movieField.getText().toString();
-		try {
-			String json = MoviesAPI.getDummyMoviesFromServer(name, 1, this);
-			Intent searchIntent = new Intent(this, MovieListActivity.class);
-			searchIntent.putExtra("json", json);
-			startActivity(searchIntent);
+		if(name == null || name.length() < 1) {
+			return;
 		}
-		catch(IOException e) {
-		    Builder builder = new AlertDialog.Builder(this);
-		    builder.setTitle("Whoops"); 
-		    builder.setMessage("We failed to connect to the server.");
-		    builder.setPositiveButton("ok", null);
-		    builder.show();
-		}
+		
+		Intent searchIntent = new Intent(this, MovieListActivity.class);
+		searchIntent.putExtra("search", true);
+		searchIntent.putExtra("query", name);
+		startActivity(searchIntent);
 	}
 }

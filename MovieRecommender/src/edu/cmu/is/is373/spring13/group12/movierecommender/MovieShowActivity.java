@@ -1,11 +1,21 @@
 package edu.cmu.is.is373.spring13.group12.movierecommender;
 
+import java.io.InputStream;
+import java.util.concurrent.ExecutionException;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import edu.cmu.is.is373.spring13.group12.movierecommender.util.GetDetailsTask;
+
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Activity;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Log;
 import android.view.Menu;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class MovieShowActivity extends Activity {
@@ -16,7 +26,9 @@ public class MovieShowActivity extends Activity {
 		
 		Bundle info = getIntent().getExtras();
 		try {
-			JSONObject movie = new JSONObject(info.getString("json"));
+			int id = info.getInt("id");
+			String json = new GetDetailsTask().execute(id).get();
+			JSONObject movie = new JSONObject(json).getJSONObject("movie");
 			
 			TextView item = (TextView)findViewById(R.id.title);
 			item.setText(movie.getString("name"));
@@ -30,7 +42,15 @@ public class MovieShowActivity extends Activity {
 			item = (TextView)findViewById(R.id.audience_value);
 			item.setText(movie.getString("audience_rating"));
 			
+			new DownloadImageTask((ImageView) findViewById(R.id.imageView1)).execute(movie.getString("poster_picture_url"));
+			
+			item = (TextView)findViewById(R.id.synopsis);
+			item.setText(movie.getString("synopsis"));
 		} catch (JSONException e) {
+			e.printStackTrace();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		} catch (ExecutionException e) {
 			e.printStackTrace();
 		}
 	}
@@ -42,4 +62,28 @@ public class MovieShowActivity extends Activity {
 		return true;
 	}
 
+	private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
+	    ImageView bmImage;
+
+	    public DownloadImageTask(ImageView bmImage) {
+	        this.bmImage = bmImage;
+	    }
+
+	    protected Bitmap doInBackground(String... urls) {
+	        String urldisplay = urls[0];
+	        Bitmap mIcon11 = null;
+	        try {
+	            InputStream in = new java.net.URL(urldisplay).openStream();
+	            mIcon11 = BitmapFactory.decodeStream(in);
+	        } catch (Exception e) {
+	            Log.e("Error", e.getMessage());
+	            e.printStackTrace();
+	        }
+	        return mIcon11;
+	    }
+
+	    protected void onPostExecute(Bitmap result) {
+	        bmImage.setImageBitmap(result);
+	    }
+	}
 }
