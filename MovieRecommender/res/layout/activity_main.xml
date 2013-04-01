@@ -11,7 +11,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="63dp"
-        android:text="@string/hello_world" />
+        android:text="@string/hello" />
 
     <Button
         android:id="@+id/button1"

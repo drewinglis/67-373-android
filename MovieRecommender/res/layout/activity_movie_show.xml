@@ -2,11 +2,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true"
     tools:context=".MovieShowActivity" >
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="match_parent" >
 
 	<TextView
 	    android:id="@+id/title"
@@ -29,39 +30,14 @@
 	    android:text="@string/release_date" />
 
 	<TextView
-	    android:id="@+id/audience_text"
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-	    android:layout_below="@+id/critic_text"
-	    android:layout_marginLeft="40dp"
-	    android:layout_toRightOf="@+id/title"
-	    android:text="@string/audience_rating" />
-
-	<TextView
 	    android:id="@+id/audience_value"
 	    android:layout_width="wrap_content"
 	    android:layout_height="wrap_content"
 	    android:layout_alignBaseline="@+id/audience_text"
 	    android:layout_alignBottom="@+id/audience_text"
-	    android:layout_marginLeft="18dp"
+	    android:layout_marginLeft="5dp"
 	    android:layout_toRightOf="@+id/audience_text"
 	    android:text="@string/empty" />
-
-	<TextView
-	    android:id="@+id/critic_value"
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-	    android:layout_above="@+id/audience_value"
-	    android:layout_alignLeft="@+id/audience_value"
-	    android:text="@string/empty" />
-
-	<TextView
-	    android:id="@+id/critic_text"
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-	    android:layout_below="@+id/title"
-	    android:layout_toLeftOf="@+id/audience_value"
-	    android:text="@string/critic_rating" />
 
 	<ImageView
 	    android:id="@+id/imageView1"
@@ -69,7 +45,7 @@
 	    android:layout_width="200dp"
 	    android:layout_height="250dp"
 	    android:layout_alignLeft="@+id/year"
-	    android:layout_below="@+id/audience_text"
+	    android:layout_below="@+id/year"
 	    android:layout_marginTop="14dp"
 	    android:scaleType="centerInside"
 	    android:src="@drawable/com_facebook_picker_item_background" />
@@ -82,5 +58,33 @@
 	    android:layout_below="@+id/imageView1"
 	    android:layout_marginTop="14dp"
 	    android:text="@string/synopsis" />
+
+	<TextView
+	    android:id="@+id/critic_text"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_alignLeft="@+id/synopsis"
+	    android:layout_below="@+id/synopsis"
+	    android:layout_marginTop="14dp"
+	    android:text="@string/critic_rating" />
+
+	<TextView
+	    android:id="@+id/critic_value"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_toRightOf="@+id/critic_text"
+	    android:layout_alignBaseline="@+id/critic_text"
+	    android:layout_alignBottom="@+id/critic_text"
+	    android:layout_marginLeft="5dp"
+	    android:text="@string/empty" />
+
+	<TextView
+	    android:id="@+id/audience_text"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_alignLeft="@+id/critic_text"
+	    android:layout_below="@+id/critic_text"
+	    android:text="@string/audience_rating" />
+
 	</RelativeLayout>
 </ScrollView>

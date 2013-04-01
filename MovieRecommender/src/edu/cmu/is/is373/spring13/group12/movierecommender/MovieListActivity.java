@@ -1,12 +1,9 @@
 package edu.cmu.is.is373.spring13.group12.movierecommender;
 
 import java.util.ArrayList;
+import java.util.List;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import edu.cmu.is.is373.spring13.group12.movierecommender.util.SearchMoviesTask;
+import edu.cmu.is.is373.spring13.group12.movierecommender.util.EndlessScrollListener;
 
 import android.app.AlertDialog;
 import android.app.ListActivity;
@@ -18,34 +15,23 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 public class MovieListActivity extends ListActivity {
-	private ArrayList<String> data;
-	private JSONArray movies;
-	private int page;
+	private List<Integer> ids;
 
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);      
-	    data = new ArrayList<String>();
 
-	    ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, data);
+	    ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, new ArrayList<String>());
 	    setListAdapter(adapter);        
 	    getListView().setTextFilterEnabled(true);
 	    
-	    
-	    
+	    ids = new ArrayList<Integer>();
+
 	    Bundle info = getIntent().getExtras();
-	    page = 1;
-	    if(info.getBoolean("search")) {
+	    if(info.getString("intent").equals("search")) {
 			try {
-				String json = new SearchMoviesTask().execute(info.getString("query"), Integer.toString(page)).get();
-				
-				movies = new JSONObject(json).getJSONArray("movies");
-				
-				for(int i = 0; i < movies.length(); i++) {
-					JSONObject movie = movies.getJSONObject(i);
-					adapter.add(movie.getString("name"));
-				}
+				this.getListView().setOnScrollListener(new EndlessScrollListener(2, this, info.getString("query"), adapter, ids));
 			} catch (Exception e) {
 				e.printStackTrace();
 				Builder builder = new AlertDialog.Builder(this);
@@ -54,21 +40,28 @@ public class MovieListActivity extends ListActivity {
 			    builder.setPositiveButton("ok", null);
 			    builder.show();
 			}
-
+	    }
+	    
+	    else if(info.getString("intent").equals("recommendations")) {
+	    	try {
+	    	//String json = new GetRecommendationsTask().execute((String)info.get("token")).get();
+	    	adapter.add("None");
+	    	//TODO add recommender parsing code
+	    	
+	    	} catch (Exception e) {
+				e.printStackTrace();
+				Builder builder = new AlertDialog.Builder(this);
+			    builder.setTitle("Whoops"); 
+			    builder.setMessage("Something went wrong converting the server response.");
+			    builder.setPositiveButton("ok", null);
+			    builder.show();
+			}
 	    }
 	}
 	
 	public void onListItemClick(ListView parent, View v, int position, long id) {
-		try {
-			Intent showIntent = new Intent(this, MovieShowActivity.class);
-			showIntent.putExtra("id", movies.getJSONObject(position).getInt("id"));
-			startActivity(showIntent);
-		} catch (JSONException e) {
-			Builder builder = new AlertDialog.Builder(this);
-		    builder.setTitle("Whoops"); 
-		    builder.setMessage("Something went wrong converting the server response.");
-		    builder.setPositiveButton("ok", null);
-		    builder.show();
-		}
+		Intent showIntent = new Intent(this, MovieShowActivity.class);
+		showIntent.putExtra("id", ids.get(position));
+		startActivity(showIntent);
 	}
 }

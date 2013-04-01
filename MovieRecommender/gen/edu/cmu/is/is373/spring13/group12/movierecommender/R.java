@@ -206,8 +206,8 @@ containing a value of this type.
         public static final int ic_launcher=0x7f02001f;
     }
     public static final class id {
-        public static final int audience_text=0x7f040009;
-        public static final int audience_value=0x7f04000b;
+        public static final int audience_text=0x7f04000a;
+        public static final int audience_value=0x7f040009;
         public static final int button1=0x7f040004;
         public static final int button2=0x7f040005;
         public static final int com_facebook_login_activity_progress_bar=0x7f040013;
@@ -229,9 +229,9 @@ containing a value of this type.
         public static final int com_facebook_usersettingsfragment_login_button=0x7f040025;
         public static final int com_facebook_usersettingsfragment_logo_image=0x7f040023;
         public static final int com_facebook_usersettingsfragment_profile_name=0x7f040024;
-        public static final int critic_text=0x7f04000a;
-        public static final int critic_value=0x7f04000c;
-        public static final int imageView1=0x7f04000d;
+        public static final int critic_text=0x7f04000d;
+        public static final int critic_value=0x7f04000e;
+        public static final int imageView1=0x7f04000b;
         public static final int large=0x7f040002;
         public static final int list=0x7f040006;
         public static final int menu_settings=0x7f040026;
@@ -241,7 +241,7 @@ containing a value of this type.
         public static final int picker_subtitle=0x7f040022;
         public static final int search_box=0x7f040021;
         public static final int small=0x7f040000;
-        public static final int synopsis=0x7f04000e;
+        public static final int synopsis=0x7f04000c;
         public static final int title=0x7f040007;
         public static final int welcome=0x7f040003;
         public static final int year=0x7f040008;
@@ -302,7 +302,7 @@ containing a value of this type.
         public static final int empty=0x7f050027;
         public static final int get_recommendations=0x7f05001c;
         public static final int go=0x7f05001d;
-        public static final int hello_world=0x7f05001e;
+        public static final int hello=0x7f05001e;
         public static final int logout=0x7f050028;
         public static final int menu_settings=0x7f05001a;
         public static final int movie_poster=0x7f050026;

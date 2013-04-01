@@ -6,7 +6,7 @@
     <string name="search_movies">Search Movies</string>
     <string name="get_recommendations">Get Recommendations</string>
     <string name="go">Go</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="hello">Welcome!</string>
     <string name="title_activity_movie_show">MovieShowActivity</string>
     <string name="critic_rating">Critic Rating:</string>
     <string name="audience_rating">Audience Rating:</string>

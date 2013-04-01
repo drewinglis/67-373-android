@@ -29,7 +29,7 @@ public class SearchActivity extends Activity {
 		}
 		
 		Intent searchIntent = new Intent(this, MovieListActivity.class);
-		searchIntent.putExtra("search", true);
+		searchIntent.putExtra("intent", "search");
 		searchIntent.putExtra("query", name);
 		startActivity(searchIntent);
 	}
