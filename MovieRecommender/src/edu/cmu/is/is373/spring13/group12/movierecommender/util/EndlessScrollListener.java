@@ -45,6 +45,10 @@ public class EndlessScrollListener implements OnScrollListener {
                 previousTotal = totalItemCount;
                 currentPage++;
             }
+            if(totalItemCount == 0) {
+            	adapter.add("No results found");
+            	ids.add(-1);
+            }
         }
         if (!loading && (totalItemCount - visibleItemCount) <= (firstVisibleItem + visibleThreshold)) {
 			addNextPage();

@@ -14,6 +14,7 @@ import android.app.ListActivity;
 import android.app.AlertDialog.Builder;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -37,7 +38,7 @@ public class MovieListActivity extends ListActivity {
 			try {
 				this.getListView().setOnScrollListener(new EndlessScrollListener(2, this, info.getString("query"), adapter, ids));
 			} catch (Exception e) {
-				e.printStackTrace();
+				Log.e("Exception", "MovieListActivity", e);
 				Builder builder = new AlertDialog.Builder(this);
 			    builder.setTitle("Whoops"); 
 			    builder.setMessage("Something went wrong converting the server response.");
@@ -56,6 +57,10 @@ public class MovieListActivity extends ListActivity {
 					adapter.add(movie.getString("name"));
 					ids.add(movie.getInt("id"));
 				}
+				if(adapter.isEmpty()) {
+					adapter.add("No recommendations found");
+					ids.add(-1);
+				}
 	    	} catch (Exception e) {
 				Builder builder = new AlertDialog.Builder(this);
 			    builder.setTitle("Whoops"); 
@@ -67,6 +72,9 @@ public class MovieListActivity extends ListActivity {
 	}
 	
 	public void onListItemClick(ListView parent, View v, int position, long id) {
+		if(ids.get(position) == -1) {
+			return;
+		}
 		Intent showIntent = new Intent(this, MovieShowActivity.class);
 		showIntent.putExtra("id", ids.get(position));
 		startActivity(showIntent);

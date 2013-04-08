@@ -1,20 +1,14 @@
 package edu.cmu.is.is373.spring13.group12.movierecommender.util;
 
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
+import com.facebook.Request;
+import com.facebook.Session;
 
 import android.os.AsyncTask;
 
-public class BackendLoginTask extends AsyncTask<String, Void, String> {
+public class BackendLoginTask extends AsyncTask<UserSession, Void, Void> {
 	@Override
-	protected String doInBackground(String... params) {
-		try {
-			return MoviesAPI.sendFacebookLogin(params[0], params[1], params[2], params[3], params[4]);
-		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+	protected Void doInBackground(UserSession... params) {
+		Request.newMeRequest(Session.getActiveSession(), new FacebookCallback(params[0])).executeAndWait();
 		return null;
 	}
 }
