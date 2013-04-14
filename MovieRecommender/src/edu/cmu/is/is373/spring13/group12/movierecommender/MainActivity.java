@@ -1,64 +1,46 @@
 package edu.cmu.is.is373.spring13.group12.movierecommender;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.view.View;
 
-import com.facebook.Session;
-import com.facebook.SessionDefaultAudience;
-import com.facebook.SessionLoginBehavior;
-import com.facebook.internal.Utility;
-
-import edu.cmu.is.is373.spring13.group12.movierecommender.util.OpenCallback;
 import edu.cmu.is.is373.spring13.group12.movierecommender.util.UserSession;
 
-public class MainActivity extends Activity {
+public class MainActivity extends FragmentActivity {
+	private MainFragment mainFragment;
 	private UserSession userSession;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
-		
-		userSession = new UserSession(this);
-		
-		Session session = Session.getActiveSession();
-        if (session == null || session.getState().isClosed()) {
-        	String applicationId = Utility.getMetadataApplicationId(this);
-            session = new Session.Builder(this).setApplicationId(applicationId).build();
-            Session.setActiveSession(session);
-        }
-        if (!session.isOpened()) {
-            Session.OpenRequest openRequest = new Session.OpenRequest(this);
+	    super.onCreate(savedInstanceState);
 
-            openRequest.setDefaultAudience(SessionDefaultAudience.NONE);
-			List<String> permissions = new ArrayList<String>();
-			permissions.add("email");
-			permissions.add("user_birthday");
-			permissions.add("user_likes");
-			permissions.add("friends_likes");
-			permissions.add("user_interests");
-			permissions.add("friends_interests");
-            openRequest.setPermissions(permissions);
-            openRequest.setLoginBehavior(SessionLoginBehavior.SSO_WITH_FALLBACK);
-            openRequest.setCallback(new OpenCallback(userSession));
-
-            session.openForRead(openRequest);
-        }
+	    if (savedInstanceState == null) {	    	
+	        // Add the fragment on initial activity setup
+	    	userSession = new UserSession();
+	        mainFragment = new MainFragment();
+	        mainFragment.setParams(this, userSession);
+	        getSupportFragmentManager()
+	        .beginTransaction()
+	        .add(android.R.id.content, mainFragment)
+	        .commit();
+	    } else {
+	        // Or set the fragment from restored state info
+	    	userSession = (UserSession)savedInstanceState.getSerializable("userSession");
+	        mainFragment = (MainFragment) getSupportFragmentManager()
+	        .findFragmentById(android.R.id.content);
+	        mainFragment.setParams(this, userSession);
+	    }
 	}
-
-  	@Override
-  	public void onActivityResult(int requestCode, int resultCode, Intent data) {
-  		super.onActivityResult(requestCode, resultCode, data);
-  		Session.getActiveSession().onActivityResult(this, requestCode, resultCode, data);
-  	}
-
+	
+	@Override
+	public void onSaveInstanceState(Bundle savedInstanceState) {
+	    super.onSaveInstanceState(savedInstanceState);
+	    savedInstanceState.putSerializable("userSession", userSession);
+	}
+	
   	public void goSearch(View button) {
   		Intent searchIntent = new Intent(this, SearchActivity.class);
 		startActivity(searchIntent);
@@ -80,6 +62,4 @@ public class MainActivity extends Activity {
 			startActivity(recIntent);
   		}
   	}
-  	
-  	
 }

@@ -208,6 +208,7 @@ containing a value of this type.
     public static final class id {
         public static final int audience_text=0x7f04000a;
         public static final int audience_value=0x7f040009;
+        public static final int authButton=0x7f040003;
         public static final int button1=0x7f040004;
         public static final int button2=0x7f040005;
         public static final int com_facebook_login_activity_progress_bar=0x7f040013;
@@ -243,7 +244,6 @@ containing a value of this type.
         public static final int small=0x7f040000;
         public static final int synopsis=0x7f04000c;
         public static final int title=0x7f040007;
-        public static final int welcome=0x7f040003;
         public static final int year=0x7f040008;
     }
     public static final class layout {
@@ -334,11 +334,9 @@ containing a value of this type.
         AppBaseTheme from BOTH res/values/styles.xml and
         res/values-v11/styles.xml on API 14+ devices.
     
- API 14 theme customizations can go here. 
          */
         public static final int AppBaseTheme=0x7f080002;
         /**  Application theme. 
- All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int AppTheme=0x7f080003;
         public static final int com_facebook_loginview_default_style=0x7f080000;

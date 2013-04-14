@@ -1,37 +1,35 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity" >
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/welcome"
+    <com.facebook.widget.LoginButton
+        android:id="@+id/authButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="63dp"
-        android:text="@string/hello" />
-
+        android:layout_gravity="center"
+        android:layout_marginTop="25dp" />
+    
     <Button
         android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/button2"
-        android:layout_alignRight="@+id/button2"
-        android:layout_below="@+id/welcome"
-        android:layout_marginTop="89dp"
+        android:layout_gravity="center"
+        android:width="250dp"
+        android:layout_marginTop="125dp"
         android:onClick="goSearch"
         android:text="@string/search_movies" />
-
+    
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/button1"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="21dp"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        android:width="250dp"
+        android:layout_marginTop="15dp"
         android:onClick="goRecommendation"
         android:text="@string/get_recommendations" />
-
-</RelativeLayout>
+</LinearLayout>

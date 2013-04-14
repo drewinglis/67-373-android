@@ -1,16 +1,11 @@
 package edu.cmu.is.is373.spring13.group12.movierecommender.util;
 
-import android.app.Activity;
-import edu.cmu.is.is373.spring13.group12.movierecommender.MainActivity;
+import java.io.Serializable;
 
-public class UserSession {
-	private MainActivity logginActivity;
+public class UserSession implements Serializable {
+	private static final long serialVersionUID = -1079902575813321695L;
 	private String token;
 	private String id;
-	
-	public UserSession(MainActivity logginActivity) {
-		this.logginActivity = logginActivity;
-	}
 	
 	public void set(String id, String token) {
 		this.id = id;
@@ -23,9 +18,5 @@ public class UserSession {
 	
 	public String getToken() {
 		return token;
-	}
-	
-	public Activity getActivity() {
-		return logginActivity;
 	}
 }
