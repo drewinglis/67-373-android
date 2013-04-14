@@ -8,6 +8,7 @@ import org.json.JSONObject;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
+import android.util.Log;
 import android.widget.AbsListView;
 import android.widget.ArrayAdapter;
 import android.widget.AbsListView.OnScrollListener;
@@ -67,7 +68,7 @@ public class EndlessScrollListener implements OnScrollListener {
 				ids.add(movie.getInt("id"));
 			}
 		} catch(Exception e) {
-			e.printStackTrace();
+			Log.e("EndlessScrollListener", e.getMessage(), e);
 			Builder builder = new AlertDialog.Builder(activity);
 		    builder.setTitle("Whoops"); 
 		    builder.setMessage("Something went wrong converting the server response.");
