@@ -3,8 +3,8 @@
 
     <string name="app_name">MovieRecommender</string>
     <string name="menu_settings">Settings</string>
-    <string name="search_movies">Search Movies</string>
-    <string name="get_recommendations">Get Recommendations</string>
+    <string name="search_movies">Search</string>
+    <string name="get_recommendations">Recommendations</string>
     <string name="go">Go</string>
     <string name="hello">Welcome!</string>
     <string name="title_activity_movie_show">MovieShowActivity</string>
@@ -19,4 +19,7 @@
     <string name="logout">Log out</string>
     <string name="title_activity_main">MainActivity</string>
 	<string name="app_id">523362714374297</string>
+	<string name="search_string"/>
+	<string name="search_list">Movies, Actors, etc.</string>
+	<string name="synop_title">Synopsis</string>
 </resources>

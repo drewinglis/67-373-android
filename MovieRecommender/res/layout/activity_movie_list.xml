@@ -2,12 +2,31 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/activity_bg_color"
     android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/textView1"
+        style="@style/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10sp"
+        android:layout_marginTop="5sp"
+        android:text="Search Results"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/text_color" />
 
     <ListView
         android:id="@+id/list"
+        style="@style/listitem"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="match_parent"
+        android:layout_marginTop="-10sp"
+        android:background="@color/activity_bg_color"
+        android:divider="@color/text_color"
+        android:dividerHeight="1dp"
+        android:padding="8dip"
+        android:textColor="#FF0000" >
     </ListView>
 
 </LinearLayout> 

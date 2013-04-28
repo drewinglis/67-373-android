@@ -3,33 +3,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    >
 
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="210sp"
+        android:layout_height="50sp"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/gradient_black"
+        android:drawableLeft="@drawable/search_button"
+        android:layout_gravity="center"
+        android:onClick="goSearch"
+        android:text="@string/search_movies"
+        android:textColor="#FFF" 
+        android:textSize="17sp"/>
+    
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="210sp"
+        android:layout_height="50sp"
+        android:background="@drawable/gradient_black"
+        android:drawableLeft="@drawable/recommen_button"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        android:onClick="goRecommendation"
+        android:text="@string/get_recommendations"
+        android:textColor="#FFF" 
+        android:textSize="17sp" />
+    
     <com.facebook.widget.LoginButton
         android:id="@+id/authButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="25dp" />
-    
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:width="250dp"
-        android:layout_marginTop="125dp"
-        android:onClick="goSearch"
-        android:text="@string/search_movies" />
-    
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:visibility="gone"
-        android:width="250dp"
-        android:layout_marginTop="15dp"
-        android:onClick="goRecommendation"
-        android:text="@string/get_recommendations" />
+        android:layout_marginTop="30dp"/>
 </LinearLayout>
