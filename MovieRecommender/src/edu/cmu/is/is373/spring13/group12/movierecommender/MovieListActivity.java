@@ -18,6 +18,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.view.Menu;
+import android.view.MenuItem;
 
 public class MovieListActivity extends ListActivity {
 	private List<Integer> ids;
@@ -71,6 +73,30 @@ public class MovieListActivity extends ListActivity {
 			}
 	    }
 	}
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.options_menu, menu);
+		return true;
+	}
+	
+	public boolean onOptionsItemSelected(MenuItem item) {
+	    // Handle item selection
+	    switch (item.getItemId()) {
+	        case R.id.Home:
+	      		Intent mainIntent = new Intent(this, MainActivity.class);
+	    		startActivity(mainIntent);;
+	            return true;
+	        case R.id.Search:
+	      		Intent searchIntent = new Intent(this, SearchActivity.class);
+	    		startActivity(searchIntent);
+	            return true;
+	        default:
+	            return super.onOptionsItemSelected(item);
+	    }
+	}
+
 	
 	public void onListItemClick(ListView parent, View v, int position, long id) {
 		if(ids.get(position) == -1) {

@@ -11,10 +11,12 @@ import edu.cmu.is.is373.spring13.group12.movierecommender.util.GetDetailsTask;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -59,8 +61,24 @@ public class MovieShowActivity extends Activity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.activity_movie_show, menu);
+		getMenuInflater().inflate(R.menu.options_menu, menu);
 		return true;
+	}
+	
+	public boolean onOptionsItemSelected(MenuItem item) {
+	    // Handle item selection
+	    switch (item.getItemId()) {
+	        case R.id.Home:
+	      		Intent mainIntent = new Intent(this, MainActivity.class);
+	    		startActivity(mainIntent);;
+	            return true;
+	        case R.id.Search:
+	      		Intent searchIntent = new Intent(this, SearchActivity.class);
+	    		startActivity(searchIntent);
+	            return true;
+	        default:
+	            return super.onOptionsItemSelected(item);
+	    }
 	}
 
 	private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {

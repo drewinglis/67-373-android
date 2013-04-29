@@ -207,14 +207,19 @@ containing a value of this type.
         public static final int com_facebook_usersettingsfragment_background_gradient=0x7f02001e;
         public static final int cool_gradient=0x7f02001f;
         public static final int gradient_black=0x7f020020;
-        public static final int ic_launcher=0x7f020021;
-        public static final int logo=0x7f020022;
-        public static final int recommen_button=0x7f020023;
-        public static final int search_button=0x7f020024;
+        public static final int home_dark=0x7f020021;
+        public static final int ic_launcher=0x7f020022;
+        public static final int logo=0x7f020023;
+        public static final int rating_dark=0x7f020024;
+        public static final int recommen_button=0x7f020025;
+        public static final int search_button=0x7f020026;
+        public static final int search_dark=0x7f020027;
     }
     public static final class id {
-        public static final int audience_text=0x7f04000b;
-        public static final int audience_value=0x7f04000a;
+        public static final int Home=0x7f040028;
+        public static final int Search=0x7f040029;
+        public static final int audience_text=0x7f04000d;
+        public static final int audience_value=0x7f04000f;
         public static final int authButton=0x7f040006;
         public static final int button1=0x7f040004;
         public static final int button2=0x7f040005;
@@ -237,8 +242,8 @@ containing a value of this type.
         public static final int com_facebook_usersettingsfragment_login_button=0x7f040026;
         public static final int com_facebook_usersettingsfragment_logo_image=0x7f040024;
         public static final int com_facebook_usersettingsfragment_profile_name=0x7f040025;
-        public static final int critic_text=0x7f04000d;
-        public static final int critic_value=0x7f04000e;
+        public static final int critic_text=0x7f04000b;
+        public static final int critic_value=0x7f04000c;
         public static final int imageView1=0x7f040003;
         public static final int large=0x7f040002;
         public static final int menu_settings=0x7f040027;
@@ -248,8 +253,8 @@ containing a value of this type.
         public static final int picker_subtitle=0x7f040023;
         public static final int search_box=0x7f040022;
         public static final int small=0x7f040000;
-        public static final int synop_title=0x7f04000f;
-        public static final int synopsis=0x7f04000c;
+        public static final int synop_title=0x7f04000e;
+        public static final int synopsis=0x7f04000a;
         public static final int textView1=0x7f040007;
         public static final int title=0x7f040008;
         public static final int year=0x7f040009;
@@ -276,6 +281,7 @@ containing a value of this type.
     public static final class menu {
         public static final int activity_main=0x7f090000;
         public static final int activity_movie_show=0x7f090001;
+        public static final int options_menu=0x7f090002;
     }
     public static final class string {
         public static final int app_id=0x7f05002a;

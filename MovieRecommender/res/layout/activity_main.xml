@@ -24,11 +24,11 @@
         android:onClick="goSearch"
         android:text="@string/search_movies"
         android:textColor="#FFF" 
-        android:textSize="17sp"/>
+        android:textSize="15sp"/>
     
     <Button
         android:id="@+id/button2"
-        android:layout_width="210sp"
+        android:layout_width="205sp"
         android:layout_height="50sp"
         android:background="@drawable/gradient_black"
         android:drawableLeft="@drawable/recommen_button"
@@ -38,7 +38,7 @@
         android:onClick="goRecommendation"
         android:text="@string/get_recommendations"
         android:textColor="#FFF" 
-        android:textSize="17sp" />
+        android:textSize="15sp" />
     
     <com.facebook.widget.LoginButton
         android:id="@+id/authButton"

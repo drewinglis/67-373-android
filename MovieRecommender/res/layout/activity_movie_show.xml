@@ -32,18 +32,6 @@
 	    android:text="@string/release_date"
 	    android:textColor="@color/text_color" />
 
-	<TextView
-	    android:id="@+id/audience_value"
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-	    android:layout_alignBaseline="@+id/audience_text"
-	    android:layout_alignBottom="@+id/audience_text"
-	    android:layout_marginLeft="5dp"
-	    android:layout_toRightOf="@+id/audience_text"
-	    android:text="@string/empty"
-	    android:textColor="@color/text_color"
-	     />
-
 	<ImageView
 	    android:id="@+id/imageView1"
 	    android:contentDescription="@string/movie_poster"
@@ -106,6 +94,24 @@
 	    android:layout_below="@+id/imageView1"
 	    android:text="@string/synop_title"
 	    />
+
+	<TextView
+	    android:id="@+id/textView1"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_alignTop="@+id/imageView1"
+	    android:layout_marginLeft="21dp"
+	    android:layout_toRightOf="@+id/imageView1"
+	    android:text="@string/mpaa_rating" />
+
+	<TextView
+	    android:id="@+id/audience_value"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_above="@+id/audience_text"
+	    android:layout_toRightOf="@+id/audience_text"
+	    android:text="@string/empty"
+	    android:textColor="@color/text_color" />
 
 	</RelativeLayout>
 </ScrollView>
