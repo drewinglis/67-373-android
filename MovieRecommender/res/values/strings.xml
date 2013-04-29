@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">MovieRecommender</string>
+    <string name="app_name">Silver Screen Advisor</string>
     <string name="menu_settings">Settings</string>
     <string name="search_movies">Search</string>
     <string name="get_recommendations">Recommendations</string>

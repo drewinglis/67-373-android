@@ -7,8 +7,8 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/activity_bg_color" >
+        android:layout_height="wrap_content"
+        android:background="@drawable/cool_gradient" >
 
 	<TextView
 	    android:id="@+id/title"
@@ -53,7 +53,8 @@
 	    android:layout_below="@+id/year"
 	    android:layout_marginTop="14dp"
 	    android:scaleType="centerInside"
-	    android:src="@drawable/com_facebook_picker_item_background" />
+	    android:src="@drawable/com_facebook_picker_item_background"
+	    android:layout_marginBottom="14dp" />
 
 	<TextView
 	    android:id="@+id/synopsis"
@@ -61,9 +62,10 @@
 	    android:layout_height="wrap_content"
 	    android:layout_alignLeft="@+id/imageView1"
 	    android:layout_below="@+id/imageView1"
-	    android:layout_marginTop="14dp"
+	    android:layout_marginTop="18dp"
 	    android:text="@string/synopsis"
-	    android:textColor="@color/text_color" />
+	    android:textColor="@color/text_color" 
+	    />
 
 	<TextView
 	    android:id="@+id/critic_text"
@@ -102,7 +104,8 @@
 	    android:layout_height="wrap_content"
 	    android:layout_alignLeft="@+id/synopsis"
 	    android:layout_below="@+id/imageView1"
-	    android:text="@string/synop_title" />
+	    android:text="@string/synop_title"
+	    />
 
 	</RelativeLayout>
 </ScrollView>

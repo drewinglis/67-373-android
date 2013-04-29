@@ -25,8 +25,9 @@ public class MovieListActivity extends ListActivity {
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-	    super.onCreate(savedInstanceState);      
-
+	    super.onCreate(savedInstanceState);
+	    setContentView(R.layout.activity_movie_list);
+	    
 	    ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, new ArrayList<String>());
 	    setListAdapter(adapter);        
 	    getListView().setTextFilterEnabled(true);
