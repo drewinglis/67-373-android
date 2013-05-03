@@ -29,6 +29,10 @@ public class SearchActivity extends Activity {
 	      		Intent mainIntent = new Intent(this, MainActivity.class);
 	    		startActivity(mainIntent);;
 	            return true;
+	        case R.id.Search:
+	      		Intent searchIntent = new Intent(this, SearchActivity.class);
+	    		startActivity(searchIntent);
+	            return true;    
 	        default:
 	            return super.onOptionsItemSelected(item);
 	    }

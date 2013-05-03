@@ -44,11 +44,15 @@ public class MovieShowActivity extends Activity {
 			item = (TextView)findViewById(R.id.audience_value);
 			item.setText(movie.getString("audience_rating"));
 			
-			
 			new DownloadImageTask((ImageView) findViewById(R.id.imageView1)).execute(movie.getString("poster_picture_url"));
 			
 			item = (TextView)findViewById(R.id.synopsis);
 			item.setText(movie.getString("synopsis"));
+			
+			item = (TextView)findViewById(R.id.mpaa_rating);
+			item.setText(movie.getString("mpaa_rating"));
+			
+			
 		} catch (JSONException e) {
 			e.printStackTrace();
 		} catch (InterruptedException e) {
